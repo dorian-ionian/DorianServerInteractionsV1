@@ -11,8 +11,8 @@ function Mutate(string MutateString, PlayerController Sender)
 
     if (MutateString ~= "DualWieldConfig")
         Sender.ClientOpenMenu("DualWieldV1.dw_SettingsPage");
-    else if (MutateString ~= "GibPreferences")
-        Sender.ClientOpenMenu("InvasionProv1_7modV1.InvasionProGibMenu");
+    else if (MutateString ~= "PlayerPreferences")
+        Sender.ClientOpenMenu("InvasionProv1_7modV1.InvasionProPlayerPrefsMenu");
 }
 
 defaultproperties

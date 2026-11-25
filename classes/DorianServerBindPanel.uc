@@ -370,7 +370,7 @@ defaultproperties
    AmmoText="Change Ammo"
    ReloadText="Reload"
    RandomText="Select Random Weapon"
-   GibPrefText="Gib Preferences Menu"
+   GibPrefText="Player Preferences Menu"
    NextArtText="Next Artifact"
    PrevArtText="Previous Artifact"
    ActArtText="Activate Artifact"

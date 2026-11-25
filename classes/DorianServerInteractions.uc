@@ -100,7 +100,7 @@ defaultproperties
     CustomCmd(2)="changeammo"
     CustomCmd(3)="reloadmenow"
     CustomCmd(4)="mutate randomswitch"
-    CustomCmd(5)="mutate gibpreferences"
+    CustomCmd(5)="mutate playerpreferences"
     CustomCmd(6)="RPGArtifactHoldStart 1"
     CustomCmd(7)="RPGArtifactHoldStart -1"
     CustomCmd(8)="ActivateItem"
