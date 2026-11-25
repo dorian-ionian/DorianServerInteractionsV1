@@ -93,8 +93,8 @@ event NotifyLevelChange()
 
 defaultproperties
 {
-    DWLeftKey=IK_Ctrl
-    DWRightKey=IK_Alt
+    DWLeftKey=IK_None
+    DWRightKey=IK_None
     CustomCmd(0)="RPGStatsMenu"
     CustomCmd(1)="mutate dualwieldconfig"
     CustomCmd(2)="changeammo"
