@@ -7,8 +7,8 @@ class DorianServerInteractions extends DualWieldV1.dw_DualWieldInteraction
     config(DorianServerInteractions);
 
 var config EInputKey DWLeftKey, DWRightKey;
-var config EInputKey CustomKey[9];
-var string CustomCmd[9];
+var config EInputKey CustomKey[10];
+var string CustomCmd[10];
 
 var localized string MenuName;
 var localized string MenuHelp;
@@ -50,7 +50,7 @@ function bool KeyEvent(out EInputKey Key, out EInputAction Action, float Delta)
 
     if (Action == IST_Press && (ViewportOwner.Console == none || !ViewportOwner.Console.bTyping))
     {
-        for (i = 0; i < 9; i++)
+        for (i = 0; i < 10; i++)
         {
             if (class'DorianServerInteractions'.default.CustomKey[i] != IK_None
                 && Key == class'DorianServerInteractions'.default.CustomKey[i]
@@ -104,6 +104,7 @@ defaultproperties
     CustomCmd(6)="RPGArtifactHoldStart 1"
     CustomCmd(7)="RPGArtifactHoldStart -1"
     CustomCmd(8)="ActivateItem"
+    CustomCmd(9)="mutate hook"
     MenuName="Server Binds"
     MenuHelp="Keys and commands that only apply on this server"
     bRequiresTick=True

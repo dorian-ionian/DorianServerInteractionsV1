@@ -12,6 +12,7 @@ var automated DorianKeyBindEdit e_Key5;
 var automated DorianKeyBindEdit e_Key6;
 var automated DorianKeyBindEdit e_Key7;
 var automated DorianKeyBindEdit e_Key8;
+var automated DorianKeyBindEdit e_Key9;
 
 var automated GUILabel l_DWLeft;
 var automated GUILabel l_DWRight;
@@ -24,11 +25,12 @@ var automated GUILabel l_Key5;
 var automated GUILabel l_Key6;
 var automated GUILabel l_Key7;
 var automated GUILabel l_Key8;
+var automated GUILabel l_Key9;
 
 var automated GUIButton b_Clear;
 var string ClearText;
 var string DWLeftText, DWRightText;
-var string TitanText, DWMenuText, AmmoText, ReloadText, RandomText, GibPrefText, NextArtText, PrevArtText, ActArtText;
+var string TitanText, DWMenuText, AmmoText, ReloadText, RandomText, GibPrefText, NextArtText, PrevArtText, ActArtText, GrappleText;
 var bool bReady;
 
 function InitComponent(GUIController InController, GUIComponent InOwner)
@@ -47,6 +49,7 @@ function InitComponent(GUIController InController, GUIComponent InOwner)
    e_Key6.KeyCode = class'DorianServerInteractions'.default.CustomKey[6];
    e_Key7.KeyCode = class'DorianServerInteractions'.default.CustomKey[7];
    e_Key8.KeyCode = class'DorianServerInteractions'.default.CustomKey[8];
+   e_Key9.KeyCode = class'DorianServerInteractions'.default.CustomKey[9];
 
    l_DWLeft.Caption = DWLeftText;
    l_DWRight.Caption = DWRightText;
@@ -59,6 +62,7 @@ function InitComponent(GUIController InController, GUIComponent InOwner)
    l_Key6.Caption = NextArtText;
    l_Key7.Caption = PrevArtText;
    l_Key8.Caption = ActArtText;
+   l_Key9.Caption = GrappleText;
    b_Clear.Caption = ClearText;
 
    Super.InitComponent(InController, InOwner);
@@ -83,6 +87,7 @@ function bool ClearClicked(GUIComponent Sender)
    e_Key6.ResetKey();
    e_Key7.ResetKey();
    e_Key8.ResetKey();
+   e_Key9.ResetKey();
    SaveAll();
    return true;
 }
@@ -104,6 +109,7 @@ final private function SaveAll()
    class'DorianServerInteractions'.default.CustomKey[6] = EInputKey(e_Key6.KeyCode);
    class'DorianServerInteractions'.default.CustomKey[7] = EInputKey(e_Key7.KeyCode);
    class'DorianServerInteractions'.default.CustomKey[8] = EInputKey(e_Key8.KeyCode);
+   class'DorianServerInteractions'.default.CustomKey[9] = EInputKey(e_Key9.KeyCode);
 
    class'DorianServerInteractions'.static.StaticSaveConfig();
 }
@@ -363,6 +369,29 @@ defaultproperties
    End Object
    e_Key8=DorianKeyBindEdit'DorianServerInteractionsV1.DorianServerBindPanel.Key8Edit'
 
+   Begin Object Class=GUILabel Name=Key9Label
+     TextColor=(B=255,G=255,R=255)
+     WinTop=0.370000
+     WinLeft=0.520000
+     WinWidth=0.250000
+     WinHeight=0.040000
+   End Object
+   l_Key9=GUILabel'DorianServerInteractionsV1.DorianServerBindPanel.Key9Label'
+
+   Begin Object Class=DorianKeyBindEdit Name=Key9Edit
+     OnKeyChanged=DorianServerBindPanel.AnyKeyChanged
+     WinTop=0.370000
+     WinLeft=0.780000
+     WinWidth=0.180000
+     WinHeight=0.040000
+     OnActivate=Key9Edit.InternalActivate
+     OnDeActivate=Key9Edit.InternalDeactivate
+     OnClick=Key9Edit.MouseClick
+     OnKeyType=Key9Edit.InternalOnKeyType
+     OnKeyEvent=Key9Edit.InternalOnKeyEvent
+   End Object
+   e_Key9=DorianKeyBindEdit'DorianServerInteractionsV1.DorianServerBindPanel.Key9Edit'
+
    DWLeftText="Control Left Weapon"
    DWRightText="Control Right Weapon"
    TitanText="TitanRPG Menu"
@@ -374,6 +403,7 @@ defaultproperties
    NextArtText="Next Artifact"
    PrevArtText="Previous Artifact"
    ActArtText="Activate Artifact"
+   GrappleText="Grappling Hook Ability"
    ClearText="Clear Binds"
 
    Begin Object Class=GUIButton Name=ClearBindsButton
