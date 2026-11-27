@@ -6,7 +6,7 @@
 class DorianServerInteractions extends Interaction
     config(DorianServerInteractions);
 
-var config EInputKey CustomKey[10];
+var config EInputKey CustomKey[10]; // Slot 1 is unused; indexes are kept so saved binds still line up
 var string CustomCmd[10];
 
 var localized string MenuName;
@@ -83,7 +83,6 @@ event NotifyLevelChange()
 defaultproperties
 {
     CustomCmd(0)="RPGStatsMenu"
-    CustomCmd(1)="mutate dualwieldconfig"
     CustomCmd(2)="changeammo"
     CustomCmd(3)="reloadmenow"
     CustomCmd(4)="mutate randomswitch"

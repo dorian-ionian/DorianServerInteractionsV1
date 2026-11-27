@@ -2,7 +2,6 @@ class DorianServerBindPanel extends MidGamePanel
    dependsOn(Interactions);
 
 var automated DorianKeyBindEdit e_Key0;
-var automated DorianKeyBindEdit e_Key1;
 var automated DorianKeyBindEdit e_Key2;
 var automated DorianKeyBindEdit e_Key3;
 var automated DorianKeyBindEdit e_Key4;
@@ -13,7 +12,6 @@ var automated DorianKeyBindEdit e_Key8;
 var automated DorianKeyBindEdit e_Key9;
 
 var automated GUILabel l_Key0;
-var automated GUILabel l_Key1;
 var automated GUILabel l_Key2;
 var automated GUILabel l_Key3;
 var automated GUILabel l_Key4;
@@ -25,7 +23,7 @@ var automated GUILabel l_Key9;
 
 var automated GUIButton b_Clear;
 var string ClearText;
-var string TitanText, DWMenuText, AmmoText, ReloadText, RandomText, GibPrefText, NextArtText, PrevArtText, ActArtText, GrappleText;
+var string TitanText, AmmoText, ReloadText, RandomText, GibPrefText, NextArtText, PrevArtText, ActArtText, GrappleText;
 var bool bReady;
 
 function InitComponent(GUIController InController, GUIComponent InOwner)
@@ -33,7 +31,6 @@ function InitComponent(GUIController InController, GUIComponent InOwner)
    bReady = false;
 
    e_Key0.KeyCode = class'DorianServerInteractions'.default.CustomKey[0];
-   e_Key1.KeyCode = class'DorianServerInteractions'.default.CustomKey[1];
    e_Key2.KeyCode = class'DorianServerInteractions'.default.CustomKey[2];
    e_Key3.KeyCode = class'DorianServerInteractions'.default.CustomKey[3];
    e_Key4.KeyCode = class'DorianServerInteractions'.default.CustomKey[4];
@@ -44,7 +41,6 @@ function InitComponent(GUIController InController, GUIComponent InOwner)
    e_Key9.KeyCode = class'DorianServerInteractions'.default.CustomKey[9];
 
    l_Key0.Caption = TitanText;
-   l_Key1.Caption = DWMenuText;
    l_Key2.Caption = AmmoText;
    l_Key3.Caption = ReloadText;
    l_Key4.Caption = RandomText;
@@ -67,7 +63,6 @@ function AnyKeyChanged(byte keyCode)
 function bool ClearClicked(GUIComponent Sender)
 {
    e_Key0.ResetKey();
-   e_Key1.ResetKey();
    e_Key2.ResetKey();
    e_Key3.ResetKey();
    e_Key4.ResetKey();
@@ -86,7 +81,6 @@ final private function SaveAll()
       return;
 
    class'DorianServerInteractions'.default.CustomKey[0] = EInputKey(e_Key0.KeyCode);
-   class'DorianServerInteractions'.default.CustomKey[1] = EInputKey(e_Key1.KeyCode);
    class'DorianServerInteractions'.default.CustomKey[2] = EInputKey(e_Key2.KeyCode);
    class'DorianServerInteractions'.default.CustomKey[3] = EInputKey(e_Key3.KeyCode);
    class'DorianServerInteractions'.default.CustomKey[4] = EInputKey(e_Key4.KeyCode);
@@ -110,18 +104,9 @@ defaultproperties
    End Object
    l_Key0=GUILabel'DorianServerInteractionsV1.DorianServerBindPanel.Key0Label'
 
-   Begin Object Class=GUILabel Name=Key1Label
-      TextColor=(B=255,G=255,R=255)
-      WinTop=0.190000
-      WinLeft=0.030000
-      WinWidth=0.250000
-      WinHeight=0.040000
-   End Object
-   l_Key1=GUILabel'DorianServerInteractionsV1.DorianServerBindPanel.Key1Label'
-
    Begin Object Class=GUILabel Name=Key2Label
       TextColor=(B=255,G=255,R=255)
-      WinTop=0.460000
+      WinTop=0.190000
       WinLeft=0.030000
       WinWidth=0.250000
       WinHeight=0.040000
@@ -130,7 +115,7 @@ defaultproperties
 
    Begin Object Class=GUILabel Name=Key3Label
       TextColor=(B=255,G=255,R=255)
-      WinTop=0.550000
+      WinTop=0.280000
       WinLeft=0.030000
       WinWidth=0.250000
       WinHeight=0.040000
@@ -151,23 +136,9 @@ defaultproperties
    End Object
    e_Key0=DorianKeyBindEdit'DorianServerInteractionsV1.DorianServerBindPanel.Key0Edit'
 
-   Begin Object Class=DorianKeyBindEdit Name=Key1Edit
-      OnKeyChanged=DorianServerBindPanel.AnyKeyChanged
-      WinTop=0.190000
-      WinLeft=0.300000
-      WinWidth=0.180000
-      WinHeight=0.040000
-      OnActivate=Key1Edit.InternalActivate
-      OnDeActivate=Key1Edit.InternalDeactivate
-      OnClick=Key1Edit.MouseClick
-      OnKeyType=Key1Edit.InternalOnKeyType
-      OnKeyEvent=Key1Edit.InternalOnKeyEvent
-   End Object
-   e_Key1=DorianKeyBindEdit'DorianServerInteractionsV1.DorianServerBindPanel.Key1Edit'
-
    Begin Object Class=DorianKeyBindEdit Name=Key2Edit
       OnKeyChanged=DorianServerBindPanel.AnyKeyChanged
-      WinTop=0.460000
+      WinTop=0.190000
       WinLeft=0.300000
       WinWidth=0.180000
       WinHeight=0.040000
@@ -181,7 +152,7 @@ defaultproperties
 
    Begin Object Class=DorianKeyBindEdit Name=Key3Edit
       OnKeyChanged=DorianServerBindPanel.AnyKeyChanged
-      WinTop=0.550000
+      WinTop=0.280000
       WinLeft=0.300000
       WinWidth=0.180000
       WinHeight=0.040000
@@ -195,7 +166,7 @@ defaultproperties
 
    Begin Object Class=GUILabel Name=Key4Label
       TextColor=(B=255,G=255,R=255)
-      WinTop=0.640000
+      WinTop=0.370000
       WinLeft=0.030000
       WinWidth=0.250000
       WinHeight=0.040000
@@ -204,7 +175,7 @@ defaultproperties
 
    Begin Object Class=DorianKeyBindEdit Name=Key4Edit
       OnKeyChanged=DorianServerBindPanel.AnyKeyChanged
-      WinTop=0.640000
+      WinTop=0.370000
       WinLeft=0.300000
       WinWidth=0.180000
       WinHeight=0.040000
@@ -218,7 +189,7 @@ defaultproperties
 
    Begin Object Class=GUILabel Name=Key5Label
       TextColor=(B=255,G=255,R=255)
-      WinTop=0.730000
+      WinTop=0.460000
       WinLeft=0.030000
       WinWidth=0.250000
       WinHeight=0.040000
@@ -245,7 +216,7 @@ defaultproperties
 
    Begin Object Class=DorianKeyBindEdit Name=Key5Edit
       OnKeyChanged=DorianServerBindPanel.AnyKeyChanged
-      WinTop=0.730000
+      WinTop=0.460000
       WinLeft=0.300000
       WinWidth=0.180000
       WinHeight=0.040000
@@ -331,7 +302,7 @@ defaultproperties
    End Object
    e_Key9=DorianKeyBindEdit'DorianServerInteractionsV1.DorianServerBindPanel.Key9Edit'
 
-   DWMenuText="Dual Wield Menu"   TitanText="TitanRPG Menu"
+   TitanText="TitanRPG Menu"
    AmmoText="Change Ammo"
    ReloadText="Reload"
    RandomText="Select Random Weapon"
