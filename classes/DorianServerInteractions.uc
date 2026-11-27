@@ -3,10 +3,9 @@
 // on this client, never in user.ini, so they only apply on servers
 // running DorianServerInteractionsV1.
 //-----------------------------------------------------------
-class DorianServerInteractions extends DualWieldV1.dw_DualWieldInteraction
+class DorianServerInteractions extends Interaction
     config(DorianServerInteractions);
 
-var config EInputKey DWLeftKey, DWRightKey;
 var config EInputKey CustomKey[10];
 var string CustomCmd[10];
 
@@ -14,12 +13,6 @@ var localized string MenuName;
 var localized string MenuHelp;
 
 var bool bMenuModified;
-
-event Initialized()
-{
-    // Skips the DualWield key prompt: the bind tab replaces it.
-    bDefaultKeys = true;
-}
 
 final private function ModifyMenu()
 {
@@ -43,10 +36,6 @@ function Tick(float DeltaTime)
 function bool KeyEvent(out EInputKey Key, out EInputAction Action, float Delta)
 {
     local int i;
-
-    // Live values from the saved config, so the bind tab takes effect right away.
-    LeftControlKey = class'DorianServerInteractions'.default.DWLeftKey;
-    RightControlKey = class'DorianServerInteractions'.default.DWRightKey;
 
     if (Action == IST_Press && (ViewportOwner.Console == none || !ViewportOwner.Console.bTyping))
     {
@@ -93,8 +82,6 @@ event NotifyLevelChange()
 
 defaultproperties
 {
-    DWLeftKey=IK_None
-    DWRightKey=IK_None
     CustomCmd(0)="RPGStatsMenu"
     CustomCmd(1)="mutate dualwieldconfig"
     CustomCmd(2)="changeammo"
